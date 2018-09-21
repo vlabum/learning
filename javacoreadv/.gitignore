@@ -3,3 +3,6 @@
 *.xml
 *.class
 *.jar
+*.lst
+*.txt
+*.properties
