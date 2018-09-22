@@ -11,8 +11,8 @@ public class PhoneBookTest {
     private int maxNumber = 100000;
 
     @Test
-    public void useHashMap() {
-        PhoneBook phoneBook = new PhoneBook(false);
+    public final void useHashMap() {
+        final PhoneBook phoneBook = new PhoneBook(false);
         String name;
         long start = System.nanoTime();
         for (int i = 0; i < 10; i++) {
@@ -25,16 +25,15 @@ public class PhoneBookTest {
         }
         System.out.printf("HashMap Заполнение %d\n", System.nanoTime() - start);
         name = "Name 10";
-        List<String> list = new ArrayList<>();
         start = System.nanoTime();
-        list = phoneBook.get(name);
+        final List<String> list = phoneBook.get(name);
         System.out.printf("HashMap Поиск полным перебором %d\n", System.nanoTime() - start);
     }
 
 
     @Test
-    public void useLinkedHashMap() {
-        PhoneBook phoneBook = new PhoneBook(true);
+    public final void useLinkedHashMap() {
+        final PhoneBook phoneBook = new PhoneBook(true);
         String name;
         long start = System.nanoTime();
         for (int i = 0; i < 10; i++) {
@@ -47,9 +46,8 @@ public class PhoneBookTest {
         }
         System.out.printf("LinkedHashMap Заполнение %d\n", System.nanoTime() - start);
         name = "Name 10";
-        List<String> list = new ArrayList<>();
         start = System.nanoTime();
-        list = phoneBook.get(name);
+        final List<String> list = phoneBook.get(name);
         System.out.printf("LinkedHashMap Поиск полным перебором %d\n", System.nanoTime() - start);
     }
 
@@ -57,15 +55,15 @@ public class PhoneBookTest {
      * Тест для PhoneBook, в котором используется LinkedHashMap
      */
     @Test
-    public void getTest() {
-        PhoneBook book = new PhoneBook();
+    public final void getTest() {
+        final PhoneBook book = new PhoneBook();
 
         book.add("+79991111111", "Иванов");
         book.add("+79992222222", "Петров");
         book.add("+79993333333", "Петров");
         book.add("+79994444444", "Сидоров");
 
-        List<String> list = new ArrayList<>();
+        final List<String> list = new ArrayList<>();
         list.add("+79992222222");
         list.add("+79993333333");
         Assert.assertEquals(list,book.get("Петров"));

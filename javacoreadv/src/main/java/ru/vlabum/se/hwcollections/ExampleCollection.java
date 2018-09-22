@@ -7,12 +7,12 @@ public class ExampleCollection {
 
     public static void main(String[] args) {
 
-        String[] arrayWords = {
+        final String[] arrayWords = {
                 "One", "Two", "Three", "City", "Week",
                 "Sunday", "Two", "Three", "Three", "Value"
         };
 
-        Map<String, Integer> numberOfWords = getNumberOfWords(arrayWords);
+        final Map<String, Integer> numberOfWords = getNumberOfWords(arrayWords);
 
         // выводим список уникальных слов
         System.out.println("Список уникальных слов:");
@@ -37,8 +37,8 @@ public class ExampleCollection {
      * @return  объект HashMap, где ключем является слово в нижнем регистре,
      *          а значением - количество вхождений слова во входном массива
      */
-    public static Map<String, Integer> getNumberOfWords(String[] array) {
-        Map<String, Integer> map = new HashMap<String, Integer>(array.length);
+    public static final Map<String, Integer> getNumberOfWords(String[] array) {
+        final Map<String, Integer> map = new HashMap<>(array.length);
         for (int i = 0; i < array.length; i++) {
             String word = array[i].toLowerCase();
             if (map.containsKey(word))
