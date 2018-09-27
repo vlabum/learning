@@ -67,7 +67,7 @@ public class MentalChat extends JFrame {
      * Отсылка сообщения
      */
     private void send() {
-        if (!"".equals(textFieldSend.getText())) {
+        if (!textFieldSend.getText().isEmpty()) {
             textAreaChat.append("\n" + textFieldSend.getText());
             textFieldSend.setText("");
         }
